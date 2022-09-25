@@ -11,3 +11,7 @@ test:
 ## CI/CD
 ci-test:
 	poetry run python -m pytest
+
+ci-setup:
+	pip install poetry
+	poetry install
