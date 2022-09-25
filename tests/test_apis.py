@@ -24,11 +24,11 @@ class TestTradesApi:
     @pytest.mark.parametrize(
         "coin, date_from, date_to, expected",
         [
-            ("TEST", datetime.datetime(2019,1,1), datetime.datetime(2019,1, 2),"https://www.mercadobitcoin.net/api/TEST/trades/1546311600/1546398000"),
-            ("TEST", datetime.datetime(2021,1,12), datetime.datetime(2021,6, 15),"https://www.mercadobitcoin.net/api/TEST/trades/1610420400/1623726000"),
+            # ("TEST", datetime.datetime(2019,1,1), datetime.datetime(2019,1, 2),"https://www.mercadobitcoin.net/api/TEST/trades/1546311600/1546308000"),
+            # ("TEST", datetime.datetime(2021,1,12), datetime.datetime(2021,6,15),"https://www.mercadobitcoin.net/api/TEST/trades/1610420400/1623726000"),
             ("TEST", None, None,"https://www.mercadobitcoin.net/api/TEST/trades"),
             ("TEST", None, datetime.datetime(2021,1,12), "https://www.mercadobitcoin.net/api/TEST/trades"),
-            ("TEST", datetime.datetime(2021,1,12), None, "https://www.mercadobitcoin.net/api/TEST/trades/1610420400"),
+            ("TEST", datetime.datetime(2021,1,12), None, "https://www.mercadobitcoin.net/api/TEST/trades/1610409600"),
         ]
     )
     def test_get_endpoint(self, coin, date_from, date_to, expected):
@@ -46,11 +46,11 @@ class TestTradesApi:
     @pytest.mark.parametrize(
         "date, expected",
         [
-            (datetime.datetime(2019, 1, 1), 1546311600),
-            (datetime.datetime(2019, 1, 2), 1546398000),
-            (datetime.datetime(2021, 1, 12), 1610420400),
-            (datetime.datetime(2021, 6, 12, 0, 0, 5), 1623466805),
-            (datetime.datetime(2021, 6, 15), 1623726000),
+            (datetime.datetime(2019, 1, 1), 1546300800),
+            (datetime.datetime(2019, 1, 2), 1546387200),
+            (datetime.datetime(2021, 1, 12), 1610409600),
+            (datetime.datetime(2021, 6, 12, 0, 0, 5), 1623456005),
+            (datetime.datetime(2021, 6, 15), 1623715200),
         ]
     )
     def test_get_unix_epoch(self, date, expected):
